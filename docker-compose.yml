@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  jupyter:
+    build: .
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      # Mount code into container - this means you can edit code in your laptop that register in the container
+      - .:/src
+      # Persist any created notebooks after the container shuts down
+      - ~/Documents/notebooks:/notebooks
